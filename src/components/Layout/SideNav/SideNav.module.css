@@ -1,0 +1,38 @@
+.container {
+  height: 100vh;
+  position: fixed;
+  right: 0px;
+  top: 0px;
+  width: 300px;
+  background-color: white;
+  box-shadow: -1px 0px 12px 1px #aaaaaa8f;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  transition: 500ms ease-in-out all;
+}
+.open {
+  right: 0px;
+}
+.hide {
+  position: fixed;
+  right: -1000px;
+}
+.times {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  font-size: 24px;
+}
+.container ul {
+  list-style: none;
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container ul li {
+  margin: 30px 0px;
+  font-size: 20px;
+}

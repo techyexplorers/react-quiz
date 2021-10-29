@@ -1,21 +1,17 @@
 import React, { useEffect } from "react";
 import GoogleLogin from "react-google-login";
+import { useHistory } from "react-router";
 import styles from "./Login.module.css";
 
 const clientId = process.env.REACT_APP_CLIENT_ID;
 
 const Login = ({ user, setUser }) => {
-  useEffect(() => {
-    const userObj = JSON.parse(localStorage.getItem("user"));
-    console.log(userObj);
-    if (userObj) {
-      setUser(userObj);
-    }
-  }, []);
+  const history = useHistory();
 
   const onSuccess = (res) => {
-    setUser(res.profileObj);
     localStorage.setItem("user", JSON.stringify(res.profileObj));
+    setUser(res.profileObj);
+    history.push("/");
   };
   const onFailure = (res) => {
     console.log(res);

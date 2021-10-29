@@ -6,7 +6,7 @@ const LetsStart = ({ page, setPage }) => {
     return (
         <div className={styles.container}>
             <h1>Let's Start</h1>
-            <Button variant="primary" onClick={() => setPage(3)} size="lg">Start</Button>
+            <Button className="buttonClass" onClick={() => setPage(3)} size="lg">Start</Button>
         </div>
     )
 }

@@ -1,8 +1,9 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import SideNav from "../SideNav/SideNav";
 import styles from "./Header.module.css";
 
-const Header = () => {
+const Header = ({ user, setUser }) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <header className={styles.mainContainer}>
@@ -16,10 +17,18 @@ const Header = () => {
             onClick={() => setIsOpen(true)}
           ></i>
           <ul>
-            <li>Home</li>
-            <li>About</li>
-            <li>Play</li>
-            <li>Login</li>
+            <Link to="/">
+              <li>Home</li>
+            </Link>
+            <Link to="/about">
+              <li>About</li>
+            </Link>
+            <Link to="/play">
+              <li>Play</li>
+            </Link>
+            <Link to="/login">
+              <li>Login</li>
+            </Link>
           </ul>
         </nav>
       </div>

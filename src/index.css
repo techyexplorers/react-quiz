@@ -22,3 +22,6 @@ code {
   --tertiary-color: #274472;
   --text-color: #C3E0E5;
 }
+button {
+  /* background-color: var(--primary-color) !important; */
+}

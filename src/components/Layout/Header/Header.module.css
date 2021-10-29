@@ -27,10 +27,12 @@
   list-style: none;
   margin: 0px;
 }
-.nav ul li {
+.nav ul a {
   flex: 50%;
   padding: 0px;
   text-align: end;
+  color: unset;
+  text-decoration: none;
 }
 .bars {
   display: none;

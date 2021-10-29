@@ -1,61 +1,7 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 
-// const Game = ({ num, setNum, data }) => {
-//   console.log(data.length, num, data[num].question);
-//   const next = () => {
-//     if (num < data.length - 1) {
-//       setNum((prev) => prev + 1);
-//     }
-//      else {
-//       alert("finished!");
-//     }
-//   };
-
-//   const [answers, setAnswers] = useState([])
-
-//   console.log(answers)
-//   return (
-//     <div style={{ display: "flex", flexDirection: "column" }}>
-//       {data[num].question}
-
-//       {data[num].options.map((i) => (
-//         <p
-//           onClick={() => {
-//             if (data[num].correctAnswer === i.option) {
-//               alert("correct");
-//               setAnswers(prev => [...prev, {
-//                 question: data[num].question,
-//                 isCorrect: true,
-//                 option: i.option,
-//               }])
-//             } else {
-//               alert("wrong");
-//               setAnswers(prev => [...prev, {
-//                 question: data[num].question,
-//                 isCorrect: false,
-//                 option: i.option,
-//               }])
-//             }
-//           }}
-//         >
-//           {i.name}
-//         </p>
-//       ))}
-
-//       <Button className="buttonClass" onClick={next}>
-//         Next
-//       </Button>
-//     </div>
-//   );
-// };
-
-// export default Game;
-
-// ================
-
-const Game = ({ num, setNum, data, setScore, setLife }) => {
-  const [answers, setAnswers] = useState([]);
+const Game = ({ num, setNum, data, setScore, setLife, answers, setAnswers }) => {
 
   const next = () => {
     if (num < data.length - 1) {

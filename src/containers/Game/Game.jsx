@@ -12,9 +12,11 @@ const Game = ({ user }) => {
   const [score, setScore] = useState(0);
   const [life, setLife] = useState();
 
+  const [answers, setAnswers] = useState([]);
+
   useEffect(() => {
-    user ? setLife(5) : setLife(3)
-  }, [])
+    user ? setLife(5) : setLife(3);
+  }, []);
 
   return (
     <Container>
@@ -44,6 +46,8 @@ const Game = ({ user }) => {
           score={score}
           setScore={setScore}
           setLife={setLife}
+          answers={answers}
+          setAnswers={setAnswers}
         />
       </Row>
     </Container>

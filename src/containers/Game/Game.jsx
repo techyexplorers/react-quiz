@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
-import Lifeline from "../../components/Lifeline/Lifeline";
+import Life from "../../components/Life/Life";
 import Timer from "../../components/Timer/Timer";
 import Score from "../../components/Score/Score";
 import { data } from "../../mockData.js";
@@ -10,6 +10,11 @@ import styles from "./Game.module.css";
 const Game = ({ user }) => {
   const [num, setNum] = useState(0);
   const [score, setScore] = useState(0);
+  const [life, setLife] = useState();
+
+  useEffect(() => {
+    user ? setLife(5) : setLife(3)
+  }, [])
 
   return (
     <Container>
@@ -19,7 +24,7 @@ const Game = ({ user }) => {
           <Score score={score} setScore={setScore} />
         </Col>
         <Col lg="2">
-          <Lifeline user={user} />
+          <Life user={user} life={life} />
         </Col>
       </Row>
 
@@ -38,6 +43,7 @@ const Game = ({ user }) => {
           data={data}
           score={score}
           setScore={setScore}
+          setLife={setLife}
         />
       </Row>
     </Container>

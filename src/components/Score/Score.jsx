@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./Score.module.css";
 
-const Score = ({ score, setScore }) => {
+const Score = ({ score }) => {
   return (
     <div className={styles.container}>
       <p>Score: {score}</p>

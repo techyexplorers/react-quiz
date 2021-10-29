@@ -13,29 +13,33 @@ const Game = ({ user }) => {
 
   return (
     <Container>
-
-    {/* Score and Life */}
+      {/* Score and Life */}
       <Row className="justify-content-md-between mt-4">
         <Col lg="2">
-          <Score />
+          <Score score={score} setScore={setScore} />
         </Col>
         <Col lg="2">
           <Lifeline user={user} />
         </Col>
       </Row>
 
-    {/* Timer */}
+      {/* Timer */}
       <Row className="justify-content-md-center mt-4">
         <Col lg="2">
           <Timer />
         </Col>
       </Row>
 
-    {/* Game Container */}
+      {/* Game Container */}
       <Row className={styles.gameContaienr}>
-        <GameContainer num={num} setNum={setNum} data={data} />
+        <GameContainer
+          num={num}
+          setNum={setNum}
+          data={data}
+          score={score}
+          setScore={setScore}
+        />
       </Row>
-
     </Container>
   );
 };

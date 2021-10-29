@@ -54,7 +54,7 @@ import { Button } from "react-bootstrap";
 
 // ================
 
-const Game = ({ num, setNum, data }) => {
+const Game = ({ num, setNum, data, score, setScore }) => {
   const [answers, setAnswers] = useState([]);
 
   const next = () => {
@@ -69,23 +69,20 @@ const Game = ({ num, setNum, data }) => {
     console.log(selected);
 
     const answer = selected.option;
-
     const correctAnswer = currentObj.correctAnswer;
-
     const isCorrect = answer === correctAnswer;
 
     if (isCorrect) {
-        console.log("hello")
+      setScore((prev) => prev + 1);
     }
 
     const answerObj = {
-        question: currentObj.question,
-        answer: answer,
-        isCorrect: isCorrect,
-    }
+      question: currentObj.question,
+      answer: answer,
+      isCorrect: isCorrect,
+    };
 
-    setAnswers(prev => [...prev, answerObj]);
-
+    setAnswers((prev) => [...prev, answerObj]);
   };
 
   console.log(answers);

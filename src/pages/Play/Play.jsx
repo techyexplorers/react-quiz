@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import Life from "../../components/Life/Life";
 import Timer from "../../components/Timer/Timer";
 import Score from "../../components/Score/Score";
@@ -12,7 +12,7 @@ const Play = ({ user }) => {
   const [num, setNum] = useState(0);
   const [score, setScore] = useState(0);
   const [life, setLife] = useState(5);
-  const [count, setCount] = useState(5);
+  const [count, setCount] = useState(10);
   const [answers, setAnswers] = useState([]);
   const [isAnswered, setIsAnswered] = useState(false);
   const [streak, setStreak] = useState(0);
@@ -45,29 +45,23 @@ const Play = ({ user }) => {
     }
   }, [life, answers]);
 
-  console.log(answers)
+  console.log(answers);
 
   return (
-    <Container>
+    <div className={styles.container}>
       {/* Score and Life */}
-      <Row className="justify-content-md-between mt-4 mb-5 align-items-center">
-        <Col lg="2">
-          <Score score={score} setScore={setScore} />
-        </Col>
-        <Col lg="2">
-          <Life user={user} life={life} />
-        </Col>
-      </Row>
+      <div className={styles.topContainer}>
+        <Score score={score} setScore={setScore} />
+        <Life user={user} life={life} />
+      </div>
 
       {/* Timer */}
-      <Row className="justify-content-md-center mt-4">
-        <Col lg="2">
-          <Timer timer={count} />
-        </Col>
-      </Row>
+      <div className={styles.timerContainer}>
+        <Timer timer={count} />
+      </div>
 
       {/* Game Container */}
-      <Row className={styles.gameContaienr}>
+      <div className={styles.gameContainer}>
         <GameContainer
           num={num}
           setNum={setNum}
@@ -86,8 +80,8 @@ const Play = ({ user }) => {
           streak={streak}
           setStreak={setStreak}
         />
-      </Row>
-    </Container>
+      </div>
+    </div>
   );
 };
 

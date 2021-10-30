@@ -3,3 +3,8 @@
   color: var(--tertiary-color);
   margin: 0px;
 }
+@media screen and (max-width: 480px) {
+  .container p {
+    font-size: 20px;
+  }
+}

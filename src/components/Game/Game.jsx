@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
+import styles from "./Game.module.css";
 
 const Game = ({
   num,
@@ -40,7 +41,7 @@ const Game = ({
   }, [timer]);
 
   const next = () => {
-    setTimer(5);
+    setTimer(10);
     if (num < data.length - 1) {
       setNum((prev) => prev + 1);
       setIsAnswered(false);
@@ -78,23 +79,30 @@ const Game = ({
   };
 
   return (
-    <div style={{ display: "flex", flexDirection: "column" }}>
-      {data[num].question}
+    <div className={styles.container}>
+      {/* Question */}
+      <h2 className={styles.question}>{data[num].question}</h2>
 
-      {data[num].options.map((i) => (
-        <p onClick={() => {
-          if (!isAnswered) {
-            checkAnswer(i, data[num])
-          } else {
-            return "disabled"
-          }
-        }
-      }>{i.name}</p>
-      ))}
-
-      <Button className="buttonClass" onClick={next} disabled={!isAnswered}>
+      {/* Answers */}
+      <div className={styles.answersContainer}>
+        {data[num].options.map((i) => (
+          <img
+            src={i.img}
+            onClick={() => {
+              if (!isAnswered) {
+                checkAnswer(i, data[num]);
+              } else {
+                return "disabled";
+              }
+            }}
+          />
+        ))}
+      </div>
+      
+      {/* Next Button */}
+      <button className="buttonClass" onClick={next} disabled={!isAnswered}>
         Next
-      </Button>
+      </button>
     </div>
   );
 };

@@ -1,5 +1,11 @@
 .container i {
-    margin: 0px 5px;
-    font-size: 24px;
-    color: plum;
+  margin: 0px 5px;
+  font-size: 24px;
+  color: plum;
+}
+@media screen and (max-width: 480px) {
+  .container i {
+    margin: 0px 3px;
+    font-size: 20px;
+  }
 }

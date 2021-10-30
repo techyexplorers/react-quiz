@@ -65,7 +65,11 @@ const Game = ({
 
     if (isCorrect) {
       if (streak === 2) {
-        setScore((prev) => prev + 3);
+        setScore((prev) => prev + 2);
+        // setStreak(0)
+      } else if (streak === 10) {
+        setScore((prev) => prev + 5);
+        // setStreak(0)
       }
       setScore((prev) => prev + 1);
       setStreak((prev) => prev + 1);

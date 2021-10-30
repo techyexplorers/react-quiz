@@ -28,7 +28,6 @@ const Game = ({
         isCorrect: "A" === data[num].correctAnswer,
       };
       setAnswers((prev) => [...prev, answerObj]);
-      localStorage.setItem("answersObj", JSON.stringify(answers));
 
       if ("A" === data[num].correctAnswer) {
         setScore((prev) => prev + 1);
@@ -57,7 +56,7 @@ const Game = ({
     const isCorrect = answer === correctAnswer;
 
     if (isCorrect) {
-      if (streak === 3) {
+      if (streak === 2) {
         setScore((prev) => prev + 3);
       }
       setScore((prev) => prev + 1);
@@ -74,7 +73,6 @@ const Game = ({
     };
 
     setAnswers((prev) => [...prev, answerObj]);
-    localStorage.setItem("answersObj", JSON.stringify(answers));
 
     setIsAnswered(true);
   };
@@ -84,7 +82,14 @@ const Game = ({
       {data[num].question}
 
       {data[num].options.map((i) => (
-        <p onClick={() => checkAnswer(i, data[num])}>{i.name}</p>
+        <p onClick={() => {
+          if (!isAnswered) {
+            checkAnswer(i, data[num])
+          } else {
+            return "disabled"
+          }
+        }
+      }>{i.name}</p>
       ))}
 
       <Button className="buttonClass" onClick={next} disabled={!isAnswered}>

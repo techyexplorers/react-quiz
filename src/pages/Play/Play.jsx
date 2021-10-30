@@ -20,20 +20,16 @@ const Play = ({ user }) => {
 
   // Timer
   useEffect(() => {
-    // if (timer >= 0) {
-    //   setTimeout(() => setTimer(timer - 1), 1000);
-    // } else {
-    //   setTimer(0);
-    // }
-
-    const timer =
-      count > 0 && setInterval(() => setCount(count - 1), 1000);
+    const timer = count > 0 && setInterval(() => setCount(count - 1), 1000);
     return () => clearInterval(timer);
   });
 
   // Game over
   const gameOver = () => {
     history.push("/game-over");
+
+    localStorage.setItem("result", JSON.stringify(answers));
+
     localStorage.setItem("score", JSON.stringify(score));
   };
 
@@ -48,6 +44,8 @@ const Play = ({ user }) => {
       gameOver();
     }
   }, [life, answers]);
+
+  console.log(answers)
 
   return (
     <Container>
@@ -64,7 +62,7 @@ const Play = ({ user }) => {
       {/* Timer */}
       <Row className="justify-content-md-center mt-4">
         <Col lg="2">
-          <Timer timer={count}/>
+          <Timer timer={count} />
         </Col>
       </Row>
 

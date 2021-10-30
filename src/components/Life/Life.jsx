@@ -5,7 +5,7 @@ const Life = ({ user, life }) => {
   return (
     <div className={styles.container}>
       {Array.apply(null, Array(life)).map(function (x, i) {
-        return <i className="fas fa-star"></i>;
+        return <i className="fas fa-heart"></i>;
       })}
     </div>
   );

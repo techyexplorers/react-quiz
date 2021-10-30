@@ -50,7 +50,7 @@ const Play = ({ user }) => {
   return (
     <Container>
       {/* Score and Life */}
-      <Row className="justify-content-md-between mt-4">
+      <Row className="justify-content-md-between mt-4 mb-5 align-items-center">
         <Col lg="2">
           <Score score={score} setScore={setScore} />
         </Col>

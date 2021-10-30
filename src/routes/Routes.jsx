@@ -7,6 +7,8 @@ import Login from "../pages/Login/Login";
 import Play from "../pages/Play/Play";
 import Tutorial from "../pages/Tutorial/Tutorial";
 import GameOver from "../pages/GameOver/GameOver";
+import Dashboard from "../pages/Dashboard/Dashboard";
+import Summary from "../pages/Summary/Summary";
 
 const Routes = () => {
   const [user, setUser] = useState();
@@ -50,6 +52,18 @@ const Routes = () => {
             path="/game-over"
             render={(props) => (
               <GameOver {...props} user={userObj} setUser={setUser} />
+            )}
+          />
+          <Route
+            path="/dashboard"
+            render={(props) => (
+              <Dashboard {...props} user={userObj} setUser={setUser} />
+            )}
+          />
+          <Route
+            path="/summary"
+            render={(props) => (
+              <Summary {...props} user={userObj} setUser={setUser} />
             )}
           />
         </Switch>

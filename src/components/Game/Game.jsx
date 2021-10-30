@@ -1,14 +1,24 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 
-const Game = ({ num, setNum, data, setScore, setLife, answers, setAnswers }) => {
-
+const Game = ({
+  num,
+  setNum,
+  data,
+  score,
+  setScore,
+  life,
+  setLife,
+  answers,
+  setAnswers,
+}) => {
   const next = () => {
     if (num < data.length - 1) {
       setNum((prev) => prev + 1);
     } else {
       alert("finished!");
     }
+    localStorage.setItem("answersObj", JSON.stringify(answers));
   };
 
   const checkAnswer = (selected, currentObj) => {
@@ -20,8 +30,7 @@ const Game = ({ num, setNum, data, setScore, setLife, answers, setAnswers }) => 
 
     if (isCorrect) {
       setScore((prev) => prev + 1);
-    }
-    if (!isCorrect) {
+    } else if (!isCorrect) {
       setLife((prev) => prev - 1);
     }
 
@@ -32,6 +41,7 @@ const Game = ({ num, setNum, data, setScore, setLife, answers, setAnswers }) => 
     };
 
     setAnswers((prev) => [...prev, answerObj]);
+
   };
 
   console.log(answers);

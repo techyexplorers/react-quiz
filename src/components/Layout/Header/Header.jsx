@@ -32,7 +32,7 @@ const Header = ({ user, setUser }) => {
             <Link to="/about">
               <li>About</li>
             </Link>
-            <Link to="/play">
+            <Link to="/tutorial">
               <li>Play</li>
             </Link>
             {user ? (

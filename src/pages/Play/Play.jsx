@@ -12,7 +12,7 @@ const Play = ({ user }) => {
   const [num, setNum] = useState(0);
   const [score, setScore] = useState(0);
   const [life, setLife] = useState(5);
-  const [timer, setTimer] = useState(5);
+  const [count, setCount] = useState(5);
   const [answers, setAnswers] = useState([]);
   const [isAnswered, setIsAnswered] = useState(false);
   const [streak, setStreak] = useState(0);
@@ -20,11 +20,15 @@ const Play = ({ user }) => {
 
   // Timer
   useEffect(() => {
-    if (timer >= 0) {
-      setTimeout(() => setTimer(timer - 1), 1000);
-    } else {
-      setTimer(0);
-    }
+    // if (timer >= 0) {
+    //   setTimeout(() => setTimer(timer - 1), 1000);
+    // } else {
+    //   setTimer(0);
+    // }
+
+    const timer =
+      count > 0 && setInterval(() => setCount(count - 1), 1000);
+    return () => clearInterval(timer);
   });
 
   // Game over
@@ -60,7 +64,7 @@ const Play = ({ user }) => {
       {/* Timer */}
       <Row className="justify-content-md-center mt-4">
         <Col lg="2">
-          <Timer timer={timer} setTimer={setTimer} />
+          <Timer timer={count}/>
         </Col>
       </Row>
 
@@ -76,8 +80,8 @@ const Play = ({ user }) => {
           setLife={setLife}
           answers={answers}
           setAnswers={setAnswers}
-          timer={timer}
-          setTimer={setTimer}
+          timer={count}
+          setTimer={setCount}
           isAnswered={isAnswered}
           setIsAnswered={setIsAnswered}
           gameOver={gameOver}

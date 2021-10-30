@@ -25,17 +25,17 @@
 }
 @keyframes move {
   0% {
-    top: 0px;
+    opacity: 0;
   }
   100% {
-    top: 100px;
+    opacity: 1;
   }
 }
 @-webkit-keyframes move {
   0% {
-    top: 0px;
+    opacity: 0;
   }
   100% {
-    top: 100px;
+    opacity: 1;
   }
 }

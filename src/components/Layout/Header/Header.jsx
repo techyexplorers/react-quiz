@@ -4,6 +4,7 @@ import SideNav from "../SideNav/SideNav";
 import { NavDropdown } from "react-bootstrap";
 import { GoogleLogout } from "react-google-login";
 import { useHistory } from "react-router";
+import logo from "../../../assets/logo.png"
 import styles from "./Header.module.css";
 
 const Header = ({ user, setUser }) => {
@@ -18,7 +19,10 @@ const Header = ({ user, setUser }) => {
     <header className={styles.mainContainer}>
       <div className={styles.container}>
         <div className={styles.logoContainer}>
-          <h3>Logo</h3>
+        <Link to="/">
+          <img src={logo} alt="logo" />
+          <p>Quiz</p>
+        </Link>
         </div>
         <nav className={styles.nav}>
           <i

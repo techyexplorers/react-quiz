@@ -17,6 +17,24 @@
   display: flex;
   flex: 50%;
 }
+.logoContainer a {
+  color: unset;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+.logoContainer a:hover {
+  color: unset;
+}
+.logoContainer img {
+  width: 30px;
+}
+.logoContainer p {
+  margin: 0px;
+  font-size: 24px;
+  margin-left: 8px;
+  font-weight: bold;
+}
 .nav {
   flex: 50%;
 }

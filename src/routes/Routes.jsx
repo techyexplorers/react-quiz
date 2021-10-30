@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Layout from "../components/Layout/Layout";
 import Home from "../pages/Home/Home";
+import About from "../pages/About/About";
 import LetsStart from "../pages/LetsStart/LetsStart";
 import Login from "../pages/Login/Login";
 import Play from "../pages/Play/Play";
@@ -27,6 +28,10 @@ const Routes = () => {
             exact
             path="/"
             render={(props) => <Home {...props} user={userObj} />}
+          />
+          <Route
+            path="/about"
+            render={(props) => <About {...props} user={userObj} />}
           />
           <Route
             path="/play"

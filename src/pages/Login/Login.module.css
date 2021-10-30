@@ -1,6 +1,17 @@
 .container {
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.container h1 {
+    color: var(--tertiary-color);
+    margin-bottom: 30px;
+}
+.container img {
+    width: 80%;
+    max-width: 600px;
+    min-width: 250px;
+    margin-bottom: 50px;
 }

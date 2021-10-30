@@ -1,0 +1,42 @@
+.container {
+  width: 100%;
+  max-width: 1440px;
+  min-height: calc(100vh - 70px);
+  position: relative;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.container h1 {
+  margin-bottom: 30px;
+}
+.result {
+  width: 100%;
+}
+.result ul {
+  padding: 0px;
+  margin: 0px;
+  list-style: none;
+}
+.result ul li {
+  margin-bottom: 12px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.123);
+  padding-bottom: 12px;
+}
+.question {
+    margin-bottom: 8px;
+}
+.options {
+  display: flex;
+  flex-direction: column;
+}
+.option {
+  display: flex;
+}
+.option p {
+  margin-bottom: 5px;
+}
+.option span {
+  margin: 0px 8px 0px 4px;
+}

@@ -1,4 +1,5 @@
 import React from "react";
+import { todaysHighScore } from "./mockData";
 import styles from "./Dashboard.module.css";
 
 const Dashboard = () => {
@@ -11,21 +12,21 @@ const Dashboard = () => {
           <div className={styles.card}>
             <div className={styles.col}>
               <p className={styles.title}>Rank</p>
-              <p>1</p>
-              <p>2</p>
-              <p>3</p>
+              {todaysHighScore.rank.map((i) => (
+                <p>{i}</p>
+              ))}
             </div>
             <div className={styles.col}>
               <p className={styles.title}>Name</p>
-              <p>ABC</p>
-              <p>ABC</p>
-              <p>ABC</p>
+              {todaysHighScore.name.map((i) => (
+                <p>{i}</p>
+              ))}
             </div>
             <div className={styles.col}>
               <p className={styles.title}>Point</p>
-              <p>ABC</p>
-              <p>ABC</p>
-              <p>ABC</p>
+              {todaysHighScore.point.map((i) => (
+                <p>{i}</p>
+              ))}
             </div>
           </div>
 

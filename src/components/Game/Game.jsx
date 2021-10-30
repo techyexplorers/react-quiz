@@ -29,6 +29,8 @@ const Game = ({
         question: data[num].question,
         answer: "A",
         isCorrect: "A" === data[num].correctAnswer,
+        options: data[num].options,
+        correctAns: data[num].correctAnswer,
       };
       setAnswers((prev) => [...prev, answerObj]);
 
@@ -78,6 +80,8 @@ const Game = ({
       question: currentObj.question,
       answer: answer,
       isCorrect: isCorrect,
+      options: currentObj.options,
+      correctAns: currentObj.correctAnswer,
     };
 
     setAnswers((prev) => [...prev, answerObj]);

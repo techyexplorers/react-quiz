@@ -93,16 +93,34 @@ const Game = ({
       {/* Answers */}
       <div className={styles.answersContainer}>
         {data[num].options.map((i) => (
-          <img
-            src={i.img}
-            onClick={() => {
-              if (!isAnswered) {
-                checkAnswer(i, data[num]);
-              } else {
-                return "disabled";
-              }
-            }}
-          />
+          <div className={styles.imgContainer}>
+            <img
+              src={i.img}
+              onClick={() => {
+                if (!isAnswered) {
+                  checkAnswer(i, data[num]);
+                } else {
+                  return "disabled";
+                }
+              }}
+            />
+            {alertState ? (
+              <ul>
+                <li>
+                  <strong>Name</strong>: {i.name}
+                </li>
+                <li>
+                  <strong>Weight</strong>: {i.weight}
+                </li>
+                <li>
+                  <strong>Color</strong>: {i.color}
+                </li>
+                <li>
+                  <strong>Detail</strong>: {i.detail}
+                </li>
+              </ul>
+            ) : null}
+          </div>
         ))}
       </div>
 

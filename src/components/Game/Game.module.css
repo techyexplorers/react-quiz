@@ -8,6 +8,7 @@
 .question {
   margin-bottom: 40px;
   z-index: 2;
+  color: var(--tertiary-color);
 }
 .answersContainer {
   display: flex;
@@ -15,6 +16,20 @@
   justify-content: space-around;
   width: 100%;
   margin-bottom: 30px;
+}
+.imgContainer {
+  display: flex;
+  flex-direction: column;
+}
+.imgContainer ul {
+  padding: 0px;
+  margin: 15px 0px;
+}
+.imgContainer ul li {
+  max-width: 250px;
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
 }
 .answersContainer img {
   width: 300px;

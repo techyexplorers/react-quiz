@@ -1,0 +1,69 @@
+.mainContainer {
+  width: 100%;
+  max-width: 1440px;
+  min-height: calc(100vh - 70px);
+  position: relative;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.mainContainer h1 {
+  margin-bottom: 30px;
+}
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.leftContainer {
+  width: 50%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 10px;
+}
+.leftContainer h2 {
+  margin-bottom: 35px;
+}
+.card {
+  width: 100%;
+  min-height: 190px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 30px;
+  margin-bottom: 35px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.199), 0 3px 6px rgba(0, 0, 0, 0.13);
+}
+.card .col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.card .col .title {
+  border-bottom: 1px solid #000;
+  font-weight: bold;
+  font-size: 20px;
+}
+.card .col p {
+  margin-bottom: 8px;
+  font-size: 18px;
+}
+.leftContainer .yourScore,
+.yourRank {
+  font-size: 24px;
+}
+
+.rightContainer {
+  width: 50%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 10px;
+}
+.rightContainer h2 {
+  margin-bottom: 35px;
+}

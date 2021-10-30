@@ -3,9 +3,11 @@
   flex-direction: column;
   align-items: center;
   padding: 20px 0px;
+  position: relative;
 }
 .question {
   margin-bottom: 40px;
+  z-index: 2;
 }
 .answersContainer {
   display: flex;
@@ -32,6 +34,11 @@
     margin-bottom: 10px;
   }
   .answersContainer img {
+    width: 100%;
     margin-bottom: 10px;
+    border-radius: 5px;
+  }
+  .container button {
+    width: 100%;
   }
 }

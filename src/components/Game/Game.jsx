@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button } from "react-bootstrap";
+import Alert from "../../components/Alert/Alert";
 import styles from "./Game.module.css";
 
 const Game = ({
@@ -18,6 +18,8 @@ const Game = ({
   streak,
   setStreak,
 }) => {
+  const [alertState, setAlertState] = useState(null);
+
   let answerObj;
 
   // Timer
@@ -32,8 +34,10 @@ const Game = ({
 
       if ("A" === data[num].correctAnswer) {
         setScore((prev) => prev + 1);
+        setAlertState("correct");
       } else if ("A" !== data[num].correctAnswer) {
         setLife((prev) => prev - 1);
+        setAlertState("wrong");
       }
 
       setIsAnswered(true);
@@ -42,6 +46,7 @@ const Game = ({
 
   const next = () => {
     setTimer(10);
+    setAlertState(null);
     if (num < data.length - 1) {
       setNum((prev) => prev + 1);
       setIsAnswered(false);
@@ -62,9 +67,11 @@ const Game = ({
       }
       setScore((prev) => prev + 1);
       setStreak((prev) => prev + 1);
+      setAlertState("correct");
     } else if (!isCorrect) {
       setLife((prev) => prev - 1);
       setStreak(0);
+      setAlertState("wrong");
     }
 
     answerObj = {
@@ -98,11 +105,14 @@ const Game = ({
           />
         ))}
       </div>
-      
+
       {/* Next Button */}
       <button className="buttonClass" onClick={next} disabled={!isAnswered}>
         Next
       </button>
+
+      {/* Alerts */}
+      {alertState ? <Alert alertState={alertState} /> : null}
     </div>
   );
 };

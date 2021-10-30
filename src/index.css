@@ -30,6 +30,6 @@ code {
   color: var(--text-color);
   transition: all 350ms ease-in-out;
 }
-.buttonClass:hover {
-  opacity: 0.8;
+.buttonClass:disabled {
+  cursor: not-allowed;
 }

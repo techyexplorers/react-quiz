@@ -1,0 +1,41 @@
+.container {
+  position: absolute;
+  top: 100px;
+  padding: 5px 20px;
+  border-radius: 20px;
+  animation: move 5s;
+  -webkit-animation: move 1s;
+  z-index: 1;
+}
+.container p {
+  margin: 0px;
+  font-size: 24px;
+}
+.correct {
+  background-color: rgb(0, 212, 0);
+}
+.correct p {
+  color: #ffffff;
+}
+.wrong {
+  background-color: rgb(236, 8, 8);
+}
+.wrong p {
+  color: #ffffff;
+}
+@keyframes move {
+  0% {
+    top: 0px;
+  }
+  100% {
+    top: 100px;
+  }
+}
+@-webkit-keyframes move {
+  0% {
+    top: 0px;
+  }
+  100% {
+    top: 100px;
+  }
+}

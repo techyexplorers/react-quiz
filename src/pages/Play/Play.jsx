@@ -14,6 +14,7 @@ const Play = ({ user }) => {
   const [life, setLife] = useState(5);
   const [timer, setTimer] = useState(5);
   const [answers, setAnswers] = useState([]);
+  const [isAnswered, setIsAnswered] = useState(false);
   const history = useHistory();
 
   // Timer
@@ -76,6 +77,8 @@ const Play = ({ user }) => {
           setAnswers={setAnswers}
           timer={timer}
           setTimer={setTimer}
+          isAnswered={isAnswered}
+          setIsAnswered={setIsAnswered}
         />
       </Row>
     </Container>

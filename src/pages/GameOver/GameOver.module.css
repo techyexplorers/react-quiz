@@ -27,6 +27,34 @@
   font-size: 30px;
   margin: 0px 20px 0px 0px;
 }
+.socialscontainer svg {
+  width: 3rem;
+}
 .btnContainer button {
-    margin: 0px 20px;
+  margin: 0px 20px;
+}
+
+@media screen and (max-width: 480px) {
+  .container h1 {
+    font-size: 30px;
+    margin-bottom: 20px;
+  }
+  .score {
+    font-size: 26px;
+    padding: 5px 20px;
+    margin-bottom: 30px;
+  }
+  .socialscontainer {
+    margin-bottom: 30px;
+  }
+  .socialscontainer p {
+    font-size: 20px;
+    margin: 0px 20px 0px 0px;
+  }
+  .socialscontainer svg {
+    width: 2rem;
+  }
+  .btnContainer button {
+    margin: 0px 5px;
+  }
 }

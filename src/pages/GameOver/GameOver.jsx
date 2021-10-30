@@ -23,23 +23,23 @@ const GameOver = () => {
       <div className={styles.socialscontainer}>
         <p>Share:</p>
         <FacebookShareButton url="https://drive.google.com/file/d/1CMMHBeWdMlA-w6KqPl75RVxO9_ns_yuW/view">
-          <FacebookIcon size={"3rem"} round />
+          <FacebookIcon round />
         </FacebookShareButton>
         &nbsp;
         <TwitterShareButton url="https://drive.google.com/file/d/1CMMHBeWdMlA-w6KqPl75RVxO9_ns_yuW/view">
-          <TwitterIcon size={"3rem"} round />
+          <TwitterIcon round />
         </TwitterShareButton>
         &nbsp;
         <LinkedinShareButton url="https://drive.google.com/file/d/1CMMHBeWdMlA-w6KqPl75RVxO9_ns_yuW/view">
-          <LinkedinIcon size={"3rem"} round />
+          <LinkedinIcon round />
         </LinkedinShareButton>
         &nbsp;
         <WhatsappShareButton url="https://drive.google.com/file/d/1CMMHBeWdMlA-w6KqPl75RVxO9_ns_yuW/view">
-          <WhatsappIcon size={"3rem"} round />
+          <WhatsappIcon round />
         </WhatsappShareButton>
         &nbsp;
         <RedditShareButton url="https://drive.google.com/file/d/1CMMHBeWdMlA-w6KqPl75RVxO9_ns_yuW/view">
-          <RedditIcon size={"3rem"} round />
+          <RedditIcon round />
         </RedditShareButton>
       </div>
 

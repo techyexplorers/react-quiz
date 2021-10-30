@@ -27,7 +27,7 @@ code {
   padding: 8px 24px;
   border: none;
   border-radius: 3px;
-  color: var(--text-color);
+  color: #ffffff;
   transition: all 350ms ease-in-out;
 }
 .buttonClass:disabled {

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Container } from "react-bootstrap";
 import Life from "../../components/Life/Life";
 import Timer from "../../components/Timer/Timer";
 import Score from "../../components/Score/Score";

@@ -25,7 +25,14 @@ const Game = ({
         isCorrect: "A" === data[num].correctAnswer,
       };
       setAnswers((prev) => [...prev, answerObj]);
-      setIsAnswered(true)
+
+      if ("A" === data[num].correctAnswer) {
+        setScore((prev) => prev + 1);
+      } else if ("A" !== data[num].correctAnswer) {
+        setLife((prev) => prev - 1);
+      }
+
+      setIsAnswered(true);
     }
   }, [timer]);
 
@@ -33,7 +40,7 @@ const Game = ({
     if (num < data.length - 1) {
       setNum((prev) => prev + 1);
       setTimer(5);
-      setIsAnswered(false)
+      setIsAnswered(false);
     } else {
       alert("finished!");
     }
@@ -43,7 +50,7 @@ const Game = ({
     const answer = selected.option;
     const correctAnswer = currentObj.correctAnswer;
     const isCorrect = answer === correctAnswer;
-    
+
     if (isCorrect) {
       setScore((prev) => prev + 1);
     } else if (!isCorrect) {
@@ -55,11 +62,11 @@ const Game = ({
       answer: answer,
       isCorrect: isCorrect,
     };
-    
+
     setAnswers((prev) => [...prev, answerObj]);
     localStorage.setItem("answersObj", JSON.stringify(answers));
 
-    setIsAnswered(true)
+    setIsAnswered(true);
   };
 
   console.log(answers);
@@ -71,11 +78,7 @@ const Game = ({
         <p onClick={() => checkAnswer(i, data[num])}>{i.name}</p>
       ))}
 
-      <Button 
-        className="buttonClass" 
-        onClick={next}
-        disabled={!isAnswered}
-      >
+      <Button className="buttonClass" onClick={next} disabled={!isAnswered}>
         Next
       </Button>
     </div>

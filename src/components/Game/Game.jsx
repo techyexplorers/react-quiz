@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "react-bootstrap";
 
 const Game = ({
@@ -11,19 +11,33 @@ const Game = ({
   setLife,
   answers,
   setAnswers,
+  timer,
+  setTimer,
 }) => {
+  let answerObj;
+
+  // Timer
+  useEffect(() => {
+    if (timer === 0) {
+      answerObj = {
+        question: data[num].question,
+        answer: "A",
+        isCorrect: "A" === data[num].correctAnswer,
+      };
+      setAnswers((prev) => [...prev, answerObj]);
+    }
+  }, [timer]);
+
   const next = () => {
     if (num < data.length - 1) {
       setNum((prev) => prev + 1);
+      setTimer(5)
     } else {
       alert("finished!");
     }
-    localStorage.setItem("answersObj", JSON.stringify(answers));
   };
 
   const checkAnswer = (selected, currentObj) => {
-    console.log(selected);
-
     const answer = selected.option;
     const correctAnswer = currentObj.correctAnswer;
     const isCorrect = answer === correctAnswer;
@@ -34,14 +48,14 @@ const Game = ({
       setLife((prev) => prev - 1);
     }
 
-    const answerObj = {
+    answerObj = {
       question: currentObj.question,
       answer: answer,
       isCorrect: isCorrect,
     };
 
     setAnswers((prev) => [...prev, answerObj]);
-
+    localStorage.setItem("answersObj", JSON.stringify(answers));
   };
 
   console.log(answers);

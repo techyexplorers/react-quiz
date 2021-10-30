@@ -12,8 +12,18 @@ const Play = ({ user }) => {
   const [num, setNum] = useState(0);
   const [score, setScore] = useState(0);
   const [life, setLife] = useState(5);
+  const [timer, setTimer] = useState(5);
   const [answers, setAnswers] = useState([]);
   const history = useHistory();
+
+  // Timer
+  useEffect(() => {
+    if (timer > 0) {
+      setTimeout(() => setTimer(timer - 1), 1000);
+    } else {
+      setTimer(0);
+    }
+  });
 
   // Game over
   const gameOver = () => {
@@ -25,7 +35,6 @@ const Play = ({ user }) => {
     // const [lastItem] = answersFromLocalStorage ? answersFromLocalStorage.slice(-1) : null
     // console.log(lastItem.life)
 
-
     // user ? setLife(5) : setLife(3);
 
     if (life === 0) {
@@ -33,7 +42,7 @@ const Play = ({ user }) => {
     }
   }, [life, answers]);
 
-  console.log(score)
+  console.log(score);
   return (
     <Container>
       {/* Score and Life */}
@@ -49,7 +58,7 @@ const Play = ({ user }) => {
       {/* Timer */}
       <Row className="justify-content-md-center mt-4">
         <Col lg="2">
-          <Timer />
+          <Timer timer={timer} setTimer={setTimer} />
         </Col>
       </Row>
 
@@ -65,6 +74,8 @@ const Play = ({ user }) => {
           setLife={setLife}
           answers={answers}
           setAnswers={setAnswers}
+          timer={timer}
+          setTimer={setTimer}
         />
       </Row>
     </Container>

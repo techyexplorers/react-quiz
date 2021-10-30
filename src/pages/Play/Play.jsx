@@ -15,11 +15,12 @@ const Play = ({ user }) => {
   const [timer, setTimer] = useState(5);
   const [answers, setAnswers] = useState([]);
   const [isAnswered, setIsAnswered] = useState(false);
+  const [streak, setStreak] = useState(0);
   const history = useHistory();
 
   // Timer
   useEffect(() => {
-    if (timer > 0) {
+    if (timer >= 0) {
       setTimeout(() => setTimer(timer - 1), 1000);
     } else {
       setTimer(0);
@@ -29,6 +30,7 @@ const Play = ({ user }) => {
   // Game over
   const gameOver = () => {
     history.push("/game-over");
+    localStorage.setItem("score", JSON.stringify(score));
   };
 
   useEffect(() => {
@@ -43,7 +45,6 @@ const Play = ({ user }) => {
     }
   }, [life, answers]);
 
-  console.log(score);
   return (
     <Container>
       {/* Score and Life */}
@@ -79,6 +80,9 @@ const Play = ({ user }) => {
           setTimer={setTimer}
           isAnswered={isAnswered}
           setIsAnswered={setIsAnswered}
+          gameOver={gameOver}
+          streak={streak}
+          setStreak={setStreak}
         />
       </Row>
     </Container>

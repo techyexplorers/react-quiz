@@ -1,9 +1,11 @@
 import React from 'react'
 
 const GameOver = () => {
+    const score = localStorage.getItem("score")
     return (
         <div>
-            game over
+            Game Over
+            Your score: {score}
         </div>
     )
 }

@@ -13,6 +13,9 @@ const Game = ({
   setTimer,
   isAnswered,
   setIsAnswered,
+  gameOver,
+  streak,
+  setStreak,
 }) => {
   let answerObj;
 
@@ -25,6 +28,7 @@ const Game = ({
         isCorrect: "A" === data[num].correctAnswer,
       };
       setAnswers((prev) => [...prev, answerObj]);
+      localStorage.setItem("answersObj", JSON.stringify(answers));
 
       if ("A" === data[num].correctAnswer) {
         setScore((prev) => prev + 1);
@@ -37,12 +41,13 @@ const Game = ({
   }, [timer]);
 
   const next = () => {
+    setTimer(5);
     if (num < data.length - 1) {
       setNum((prev) => prev + 1);
-      setTimer(5);
       setIsAnswered(false);
     } else {
       alert("finished!");
+      gameOver();
     }
   };
 
@@ -52,9 +57,14 @@ const Game = ({
     const isCorrect = answer === correctAnswer;
 
     if (isCorrect) {
+      if (streak === 3) {
+        setScore((prev) => prev + 3);
+      }
       setScore((prev) => prev + 1);
+      setStreak((prev) => prev + 1);
     } else if (!isCorrect) {
       setLife((prev) => prev - 1);
+      setStreak(0);
     }
 
     answerObj = {
@@ -69,7 +79,6 @@ const Game = ({
     setIsAnswered(true);
   };
 
-  console.log(answers);
   return (
     <div style={{ display: "flex", flexDirection: "column" }}>
       {data[num].question}

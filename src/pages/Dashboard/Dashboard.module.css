@@ -67,3 +67,56 @@
 .rightContainer h2 {
   margin-bottom: 35px;
 }
+
+@media screen and (max-width: 600px) {
+  .mainContainer {
+    padding: 20px 20px;
+  }
+  .mainContainer h1 {
+    margin-bottom: 15px;
+  }
+  .container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .leftContainer {
+    width: 100%;
+  }
+  .rightContainer {
+    width: 100%;
+  }
+  .leftContainer h2 {
+    margin-bottom: 25px;
+    font-size: 20px;
+  }
+  .rightContainer {
+    margin: 0px;
+  }
+  .leftContainer {
+    margin: 0px;
+  }
+  .rightContainer h2 {
+    margin-bottom: 25px;
+    font-size: 20px;
+  }
+  .card {
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    min-height: 150px;
+  }
+  .card .col .title {
+    font-size: 18px;
+  }
+  .card .col p {
+    margin-bottom: 6px;
+    font-size: 16px;
+  }
+  .leftContainer .yourScore,
+  .yourRank {
+    font-size: 16px;
+    margin-bottom: 3px;
+  }
+  .yourRank {
+      margin-bottom: 20px;
+  }
+}

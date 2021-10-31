@@ -53,7 +53,6 @@ const Game = ({
       setNum((prev) => prev + 1);
       setIsAnswered(false);
     } else {
-      alert("finished!");
       gameOver();
     }
   };

@@ -33,25 +33,17 @@ const Play = ({ user }) => {
   };
 
   useEffect(() => {
-    // const answersFromLocalStorage = JSON.parse(localStorage.getItem("answersObj"))
-    // const [lastItem] = answersFromLocalStorage ? answersFromLocalStorage.slice(-1) : null
-    // console.log(lastItem.life)
-
-    // user ? setLife(5) : setLife(3);
-
     if (life === 0) {
       gameOver();
     }
   }, [life, answers]);
-
-  console.log(answers);
 
   return (
     <div className={styles.container}>
       {/* Score and Life */}
       <div className={styles.topContainer}>
         <Score score={score} setScore={setScore} />
-        <Life user={user} life={life} />
+        <Life user={user} life={life} setLife={setLife} />
       </div>
 
       {/* Timer */}

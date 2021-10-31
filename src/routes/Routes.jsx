@@ -13,16 +13,10 @@ import Summary from "../pages/Summary/Summary";
 
 const Routes = () => {
   const [user, setUser] = useState();
-
   const userObj = JSON.parse(localStorage.getItem("user"));
-  useEffect(() => {
-    if (userObj) {
-      setUser(userObj);
-    }
-  }, []);
   return (
     <Router>
-      <Layout user={userObj} setUser={setUser}>
+      <Layout user={user} setUser={setUser}>
         <Switch>
           <Route
             exact

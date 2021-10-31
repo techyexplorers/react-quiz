@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import SideNav from "../SideNav/SideNav";
 import { NavDropdown } from "react-bootstrap";
@@ -7,13 +7,19 @@ import { useHistory } from "react-router";
 import logo from "../../../assets/logo.png"
 import styles from "./Header.module.css";
 
-const Header = ({ user, setUser }) => {
+const Header = ({  user, setUser }) => {
   const history = useHistory();
+  const userObj = JSON.parse(localStorage.getItem("user"));
+
+  useEffect(() => {
+   console.log(user) 
+  }, [user])
 
   const [isOpen, setIsOpen] = useState(false);
   const logout = () => {
     localStorage.removeItem("user");
     history.push("/login");
+    setUser(null)
   };
   return (
     <header className={styles.mainContainer}>
@@ -39,9 +45,9 @@ const Header = ({ user, setUser }) => {
             <Link to="/tutorial">
               <li>Play</li>
             </Link>
-            {user ? (
+            {userObj ? (
               <NavDropdown
-                title={user.givenName}
+                title={userObj.givenName}
                 id="basic-nav-dropdown"
                 className={styles.dropdown}
               >
